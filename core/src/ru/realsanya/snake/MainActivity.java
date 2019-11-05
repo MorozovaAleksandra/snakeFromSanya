@@ -6,27 +6,36 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class MainActivity extends Game {
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+
+public class MainActivity extends Stage{
 	SpriteBatch batch;
 	Texture img;
+
+	Food food;
+
+	Stage stage;
+	StretchViewport viewport;
+
 	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+
+	public void create() {
+		stage = new Stage();
+		viewport = new StretchViewport(640, 360);
+
+		food = new Food();
+//		stage.addActor(Food);
 	}
 
-	@Override
+
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+
 	}
 	
-	@Override
+
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
