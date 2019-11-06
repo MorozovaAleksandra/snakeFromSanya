@@ -11,33 +11,40 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class MainActivity extends Stage{
-	SpriteBatch batch;
-	Texture img;
+public class MainActivity extends Game{
+    int x = 495;
+    int y = 395;
 
-	Food food;
+    SpriteBatch batch;
+    Texture img;
+    char ch = ' ';
+    char charFood = ' ';
+    Food food;
 
-	Stage stage;
-	StretchViewport viewport;
+    Field field;
+    Texture border;
 
-	
-
-	public void create() {
-		stage = new Stage();
-		viewport = new StretchViewport(640, 360);
-
-		food = new Food();
-//		stage.addActor(Food);
-	}
+//	Stage stage;
+//	StretchViewport viewport;
 
 
-	public void render () {
+    public void create() {
+//		stage = new Stage();
+//		viewport = new StretchViewport(640, 360);
 
-	}
-	
+        border = new Texture(Gdx.files.internal("check-box-empty.png"));
+        field = new Field();
+    }
 
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
+
+    public void render() {
+        Gdx.gl.glClearColor(0, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        field.render(x, y, ch);
+    }
+
+    public void dispose(){
+
+    }
 }
