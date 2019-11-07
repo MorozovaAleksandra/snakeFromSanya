@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import javafx.stage.Screen;
@@ -24,6 +25,9 @@ public class MainActivity extends Game{
     Field field;
     Texture border;
 
+    Texture snakeBody;
+    Array<Snake> body;
+
 //	Stage stage;
 //	StretchViewport viewport;
 
@@ -34,6 +38,10 @@ public class MainActivity extends Game{
 
         border = new Texture(Gdx.files.internal("check-box-empty.png"));
         field = new Field();
+
+      //  snakeBody = new Texture();
+        body = new Array<>();
+        //body.add(new Snake(snakeBody));
     }
 
 
@@ -42,6 +50,10 @@ public class MainActivity extends Game{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         field.render(x, y, ch);
+        for (Snake ball :
+                body) {
+            ball.render(batch);
+        }
     }
 
     public void dispose(){
