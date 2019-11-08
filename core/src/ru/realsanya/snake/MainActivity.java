@@ -13,47 +13,42 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class MainActivity extends Game{
-    int x = 495;
-    int y = 395;
+//    int x = 625;
+//    int y = 465;
 
     SpriteBatch batch;
+    int x = 0;
+
     Texture img;
     char ch = ' ';
     char charFood = ' ';
     Food food;
 
-    Field field;
+
     Texture border;
 
     Texture snakeBody;
-    Array<Snake> body;
+    SpriteBatch batchSnake;
+    Snake snake;
 
 //	Stage stage;
 //	StretchViewport viewport;
 
 
     public void create() {
-//		stage = new Stage();
-//		viewport = new StretchViewport(640, 360);
+        batch = new SpriteBatch();
+        this.setScreen(new Field());
 
-        border = new Texture(Gdx.files.internal("check-box-empty.png"));
-        field = new Field();
+        snakeBody = new Texture(Gdx.files.internal("snakebody.png"));
+        snake = new Snake(snakeBody);
 
-      //  snakeBody = new Texture();
-        body = new Array<>();
-        //body.add(new Snake(snakeBody));
     }
 
 
     public void render() {
         Gdx.gl.glClearColor(0, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        field.render(x, y, ch);
-        for (Snake ball :
-                body) {
-            ball.render(batch);
-        }
+        snake.render(batch);
     }
 
     public void dispose(){
