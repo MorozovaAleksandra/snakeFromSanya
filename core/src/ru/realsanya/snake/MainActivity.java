@@ -13,14 +13,12 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class MainActivity extends Game {
-    //    int x = 625;
-//    int y = 465;
     Field field;
+    Texture border;
 
     SpriteBatch batch;
     int x;
-
-    Texture border;
+    int y;
 
     Texture snakeBody;
     SpriteBatch batchSnake;
@@ -36,7 +34,6 @@ public class MainActivity extends Game {
 
     public void create() {
         batch = new SpriteBatch();
-        this.setScreen(new Field());
 
         snakeBody = new Texture(Gdx.files.internal("snakebody.png"));
         snake = new Snake(snakeBody);
@@ -58,8 +55,10 @@ public class MainActivity extends Game {
     public void render() {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         for (Food food :
                 foods) {
+            food.render(batch);
             if ((snake.getX() >= foods.get(0).getX()) &&
                     (snake.getX() + snake.getWidth()) <= (foods.get(0).getX() + foods.get(0).getWidth())
                     && (snake.getY() >= foods.get(0).getY()) &&
@@ -69,6 +68,7 @@ public class MainActivity extends Game {
             }
         }
         snake.render(batch);
+        //field.render(320,640,' ');
     }
 
 

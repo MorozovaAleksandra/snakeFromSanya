@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 
 public class Snake extends Actor {
-    int x;
-    int y;
+    int x = 45;
+    int y = 45;
     int speed = 2;
 
     Sprite snakeSprite;
@@ -41,7 +41,7 @@ public class Snake extends Actor {
         batch.begin();
         snakeSprite.setBounds(x, y, 16, 16);
         batch.draw(snakeSprite, snakeSprite.getX(), snakeSprite.getY());
-        if (Gdx.input.isKeyPressed(Input.Keys.D))  {
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             x += speed;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
@@ -54,6 +54,7 @@ public class Snake extends Actor {
             y -= speed;
         }
         batch.end();
+
     }
 
 
