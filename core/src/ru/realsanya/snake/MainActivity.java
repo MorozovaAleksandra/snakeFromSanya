@@ -41,7 +41,7 @@ public class MainActivity extends Game {
         food.render(batch);
         snake.render(batch);
 
-        if (check() == true) {
+        if (check()) {
             x = 0 + (int) (Math.random() * width);
             y = 0 + (int) (Math.random() * height);
         }
