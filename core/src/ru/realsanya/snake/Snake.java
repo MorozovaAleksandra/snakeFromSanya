@@ -23,7 +23,7 @@ public class Snake {
     }
 
     public void render(SpriteBatch batch) {
-        batch.draw(imgSnake, x, y, 32,32);
+        batch.draw(imgSnake, x, y, 32, 32);
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             x += speed;
         }

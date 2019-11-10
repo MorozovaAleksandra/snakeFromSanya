@@ -10,17 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class MainActivity extends Game {
     SpriteBatch batch;
-
     Snake snake;
     Food food;
 
-    Stage stage;
-    StretchViewport viewport;
-
     public void create() {
-        viewport = new StretchViewport(640, 360);
-        stage = new Stage(viewport);
-
         batch = new SpriteBatch();
         snake = new Snake();
         food = new Food();
@@ -48,10 +41,6 @@ public class MainActivity extends Game {
             return true;
         }
         return false;
-    }
-
-    public void getWidth() {
-
     }
 
     public void dispose() {

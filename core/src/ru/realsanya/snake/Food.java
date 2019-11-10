@@ -4,9 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
-import java.util.Random;
 
 public class Food {
     int x;
@@ -24,10 +21,10 @@ public class Food {
 
 
     public void render(SpriteBatch batch) {
-        batch.draw(imgFood, x, y, 16,16);
+        batch.draw(imgFood, x, y, 16, 16);
     }
 
-    public void change(){
+    public void change() {
         x = (int) (Math.random() * width);
         y = (int) (Math.random() * height);
     }
@@ -35,9 +32,4 @@ public class Food {
     public void dispose() {
         imgFood.dispose();
     }
-
-    public void delete(Sprite sprite) {
-    }
-
-
 }
