@@ -14,19 +14,12 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class MainActivity extends Game {
-    Field field;
-    Texture border;
 
     SpriteBatch batch;
     int x;
     int y;
 
-    Texture snakeBody;
-   // SpriteBatch batchSnake;
     Snake snake;
-
-    Texture imgFood;
-   // SpriteBatch batchFood;
     Food food;
 
     Array<Food> foods;
@@ -35,21 +28,17 @@ public class MainActivity extends Game {
 
     public void create() {
         batch = new SpriteBatch();
+        snake = new Snake();
 
-        snakeBody = new Texture(Gdx.files.internal("snakebody.png"));
-        snake = new Snake(snakeBody);
-
-        imgFood = new Texture(Gdx.files.internal("food.png"));
-        food = new Food(imgFood);
+        food = new Food();
         foods = new Array<>();
-        foods.add(new Food(imgFood));
+        foods.add(new Food());
 
     }
 
 
     public void update(Array<Food> foods) {
-        foods.add(new Food(imgFood));
-
+        foods.add(new Food());
     }
 
 
@@ -60,9 +49,7 @@ public class MainActivity extends Game {
 
         for (Food food :
                 foods) {
-            batch.begin();
-            batch.draw(imgFood, x, y);
-            batch.end();
+         food.render(batch);
             if ((snake.getX() >= foods.get(0).getX()) &&
                     (snake.getX() + snake.getWidth()) <= (foods.get(0).getX() + foods.get(0).getWidth())
                     && (snake.getY() >= foods.get(0).getY()) &&
@@ -72,7 +59,6 @@ public class MainActivity extends Game {
             }
         }
         snake.render(batch);
-        //field.render(320,640,' ');
     }
 
 

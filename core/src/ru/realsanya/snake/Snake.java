@@ -13,35 +13,20 @@ public class Snake extends Actor {
     int y = 45;
     int speed = 2;
 
-    //    Sprite snakeSprite;
     Texture imgSnake;
     SpriteBatch batch;
 
 
-//    Snake(int x, int y, int boardSize) {
-//        this.x = x % boardSize;
-//        if (this.x < 0) {
-//            this.x += boardSize;
-//        }
-//        this.y = y % boardSize;
-//        if (this.y < 0) {
-//            this.y += boardSize;
-//        }
-//    }
 
-    public Snake(Texture imgSnake) {
-        this.imgSnake = imgSnake;
+    public Snake() {
         batch = new SpriteBatch();
-//        snakeSprite = new Sprite(imgSnake);
+        imgSnake = new Texture(Gdx.files.internal("snakebody.png"));
+
     }
 
-    // public Sprite getSprite() {
-    //      return snakeSprite;
-    //}
 
     public void render(SpriteBatch batch) {
         batch.begin();
-//        snakeSprite.setBounds(x, y, 16, 16);
         batch.draw(imgSnake, x, y);
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             x += speed;

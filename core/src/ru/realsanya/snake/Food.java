@@ -16,13 +16,10 @@ public class Food extends Actor {
 
     Texture imgFood;
     SpriteBatch batch;
-    //
-    // Sprite foodSprite;
 
-    Food(Texture food) {
-        this.imgFood = food;
+    Food() {
         batch = new SpriteBatch();
-        // foodSprite = new Sprite(imgFood);
+        imgFood = new Texture(Gdx.files.internal("food.png"));
     }
 
 
@@ -30,7 +27,6 @@ public class Food extends Actor {
         x = 0 + (int) (Math.random() * width);
         y = 0 + (int) (Math.random() * height);
         batch.begin();
-        //foodSprite.setBounds(x, y, 16, 16);
         batch.draw(imgFood, x, y);
         batch.end();
     }
