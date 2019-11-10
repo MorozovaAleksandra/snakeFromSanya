@@ -25,7 +25,7 @@ public class Food {
 
     public void render(SpriteBatch batch) {
         batch.begin();
-        batch.draw(imgFood, x, y);
+        batch.draw(imgFood, x, y, 16,16);
         batch.end();
 
 
