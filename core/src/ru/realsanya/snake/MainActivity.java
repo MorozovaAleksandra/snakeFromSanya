@@ -16,14 +16,11 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class MainActivity extends Game {
 
     SpriteBatch batch;
-    int x;
-    int y;
+
 
     Snake snake;
     Food food;
 
-    Array<Food> foods;
-    float time;
 
 
     public void create() {
@@ -31,33 +28,26 @@ public class MainActivity extends Game {
         snake = new Snake();
 
         food = new Food();
-        foods = new Array<>();
-        foods.add(new Food());
+
 
     }
 
+    public void update() {
 
-    public void update(Array<Food> foods) {
-        foods.add(new Food());
     }
-
 
 
     public void render(SpriteBatch batch) {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        for (Food food :
-                foods) {
          food.render(batch);
-            if ((snake.getX() >= foods.get(0).getX()) &&
-                    (snake.getX() + snake.getWidth()) <= (foods.get(0).getX() + foods.get(0).getWidth())
-                    && (snake.getY() >= foods.get(0).getY()) &&
-                    (snake.getY() + snake.getHeight() <= foods.get(0).getY() + foods.get(0).getHeight())) {
-                foods.removeIndex(0);
-                update(foods);
+            if ((snake.getX() >= food.getX()) &&
+                    (snake.getX() + snake.getWidth()) <= (food.getX() + food.getWidth())
+                    && (snake.getY() >= food.getY()) &&
+                    (snake.getY() + snake.getHeight() <= food.getY() + food.getHeight())) {
+                update( );
             }
-        }
         snake.render(batch);
     }
 
