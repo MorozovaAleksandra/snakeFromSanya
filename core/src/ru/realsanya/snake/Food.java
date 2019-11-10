@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Food {
     int x;
     int y;
-    int width = 320;
-    int height = 640;
+    int width = Gdx.graphics.getWidth();
+    int height = Gdx.graphics.getHeight();
 
     Texture imgFood;
 

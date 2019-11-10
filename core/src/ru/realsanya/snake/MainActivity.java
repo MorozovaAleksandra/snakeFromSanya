@@ -42,5 +42,7 @@ public class MainActivity extends Game {
 
     public void dispose() {
         batch.dispose();
+        snake.dispose();
+        food.dispose();
     }
 }
