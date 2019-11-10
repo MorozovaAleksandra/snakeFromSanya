@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.awt.Point;
 
 
-public class Field  {
+public class Field {
     Texture border;
     SpriteBatch batch;
     char ch = ' ';
@@ -25,7 +25,8 @@ public class Field  {
         border = new Texture(Gdx.files.internal("check-box-empty.png"));
         batch = new SpriteBatch();
     }
-//
+
+    //
 //    public void render(float delta) {
 //        DrawHorizontal(x, 0);
 //        DrawHorizontal(x, y);
@@ -38,7 +39,7 @@ public class Field  {
         DrawHorizontal(x, y);
         DrawVertical(0, y);
         DrawVertical(x, y);
-  }
+    }
 
     private void DrawHorizontal(int x, int y) {
         batch.begin();

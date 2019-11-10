@@ -24,11 +24,13 @@ public class Food extends Actor {
 
 
     public void render(SpriteBatch batch) {
-        x = 0 + (int) (Math.random() * width);
-        y = 0 + (int) (Math.random() * height);
         batch.begin();
         batch.draw(imgFood, x, y);
         batch.end();
+
+
+        x = 0 + (int) (Math.random() * width);
+        y = 0 + (int) (Math.random() * height);
     }
 
 

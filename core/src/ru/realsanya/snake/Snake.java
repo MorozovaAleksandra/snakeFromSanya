@@ -17,7 +17,6 @@ public class Snake extends Actor {
     SpriteBatch batch;
 
 
-
     public Snake() {
         batch = new SpriteBatch();
         imgSnake = new Texture(Gdx.files.internal("snakebody.png"));

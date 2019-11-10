@@ -1,6 +1,6 @@
 package ru.realsanya.snake;
 
-import com.badlogic.gdx.ApplicationAdapter;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,15 +12,11 @@ public class MainActivity extends Game {
 
     SpriteBatch batch;
 
-
     Snake snake;
     Food food;
 
-
-
     Stage stage;
     StretchViewport viewport;
-
 
     public void create() {
         viewport = new StretchViewport(640, 360);
@@ -29,15 +25,10 @@ public class MainActivity extends Game {
         batch = new SpriteBatch();
         snake = new Snake();
         food = new Food();
-
-       // stage.addActor(food);
-
     }
 
     public void update() {
-
     }
-
 
     public void render() {
         Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -54,8 +45,16 @@ public class MainActivity extends Game {
         }
     }
 
+    public static boolean check() {
+        if ((snake.x >= food.x) &&
+                (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
+                && (snake.y >= food.y) &&
+                (snake.y + snake.getHeight() <= food.y + food.getHeight())) {
+            return true;
+        }
+        return false;
+    }
 
     public void dispose() {
-
     }
 }
