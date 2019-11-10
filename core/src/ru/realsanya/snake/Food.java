@@ -2,7 +2,6 @@ package ru.realsanya.snake;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Food {
@@ -12,10 +11,8 @@ public class Food {
     int height = 640;
 
     Texture imgFood;
-    SpriteBatch batch;
 
     Food() {
-        batch = new SpriteBatch();
         imgFood = new Texture(Gdx.files.internal("food.png"));
     }
 

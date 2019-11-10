@@ -1,12 +1,9 @@
 package ru.realsanya.snake;
 
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class MainActivity extends Game {
     SpriteBatch batch;
@@ -44,5 +41,6 @@ public class MainActivity extends Game {
     }
 
     public void dispose() {
+        batch.dispose();
     }
 }

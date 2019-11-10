@@ -3,10 +3,7 @@ package ru.realsanya.snake;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
 
 public class Snake {
     int x = 45;
@@ -14,12 +11,9 @@ public class Snake {
     int speed = 2;
 
     Texture imgSnake;
-    SpriteBatch batch;
 
     public Snake() {
-        batch = new SpriteBatch();
         imgSnake = new Texture(Gdx.files.internal("body.png"));
-
     }
 
     public void render(SpriteBatch batch) {
