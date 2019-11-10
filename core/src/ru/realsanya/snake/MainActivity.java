@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
@@ -16,7 +17,7 @@ public class MainActivity extends Game {
     Field field;
     Texture border;
 
-   // SpriteBatch batch;
+    SpriteBatch batch;
     int x;
     int y;
 
@@ -33,7 +34,7 @@ public class MainActivity extends Game {
 
 
     public void create() {
-       // batch = new SpriteBatch();
+        batch = new SpriteBatch();
 
         snakeBody = new Texture(Gdx.files.internal("snakebody.png"));
         snake = new Snake(snakeBody);
@@ -50,6 +51,7 @@ public class MainActivity extends Game {
         foods.add(new Food(imgFood));
 
     }
+
 
 
     public void render(SpriteBatch batch) {

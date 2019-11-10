@@ -15,6 +15,7 @@ public class Snake extends Actor {
 
     //    Sprite snakeSprite;
     Texture imgSnake;
+    SpriteBatch batch;
 
 
 //    Snake(int x, int y, int boardSize) {
@@ -30,6 +31,7 @@ public class Snake extends Actor {
 
     public Snake(Texture imgSnake) {
         this.imgSnake = imgSnake;
+        batch = new SpriteBatch();
 //        snakeSprite = new Sprite(imgSnake);
     }
 

@@ -15,11 +15,13 @@ public class Food extends Actor {
     int height = 640;
 
     Texture imgFood;
+    SpriteBatch batch;
     //
     // Sprite foodSprite;
 
     Food(Texture food) {
         this.imgFood = food;
+        batch = new SpriteBatch();
         // foodSprite = new Sprite(imgFood);
     }
 
