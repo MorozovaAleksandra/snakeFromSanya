@@ -4,26 +4,21 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.TimeUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-
-public class MainActivity extends Game{
-//    int x = 625;
+public class MainActivity extends Game {
+    //    int x = 625;
 //    int y = 465;
+    Field field;
 
     SpriteBatch batch;
-    int x = 0;
-
-    Texture img;
-    char ch = ' ';
-    char charFood = ' ';
-    Food food;
-
+    int x;
 
     Texture border;
 
@@ -31,8 +26,12 @@ public class MainActivity extends Game{
     SpriteBatch batchSnake;
     Snake snake;
 
-//	Stage stage;
-//	StretchViewport viewport;
+    Texture imgFood;
+    SpriteBatch batchFood;
+    Food food;
+
+    Array<Food> foods;
+    float time;
 
 
     public void create() {
@@ -42,16 +41,38 @@ public class MainActivity extends Game{
         snakeBody = new Texture(Gdx.files.internal("snakebody.png"));
         snake = new Snake(snakeBody);
 
+        imgFood = new Texture(Gdx.files.internal("food.png"));
+        food = new Food(imgFood);
+        foods = new Array<>();
+        foods.add(new Food(imgFood));
+
+    }
+
+
+    public void update(Array<Food> foods) {
+        foods.add(new Food(imgFood));
+
     }
 
 
     public void render() {
-        Gdx.gl.glClearColor(0, 1, 1, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        for (Food food :
+                foods) {
+            if ((snake.getX() >= foods.get(0).getX()) &&
+                    (snake.getX() + snake.getWidth()) <= (foods.get(0).getX() + foods.get(0).getWidth())
+                    && (snake.getY() >= foods.get(0).getY()) &&
+                    (snake.getY() + snake.getHeight() <= foods.get(0).getY() + foods.get(0).getHeight())) {
+                foods.removeIndex(0);
+                update(foods);
+            }
+        }
         snake.render(batch);
     }
 
-    public void dispose(){
+
+    public void dispose() {
 
     }
 }

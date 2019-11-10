@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.utils.Array;
+
 
 public class Snake extends Actor {
     int x;
@@ -41,7 +41,7 @@ public class Snake extends Actor {
         batch.begin();
         snakeSprite.setBounds(x, y, 16, 16);
         batch.draw(snakeSprite, snakeSprite.getX(), snakeSprite.getY());
-        if ((Gdx.input.isKeyPressed(Input.Keys.D))) {
+        if (Gdx.input.isKeyPressed(Input.Keys.D))  {
             x += speed;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
