@@ -57,6 +57,10 @@ public class MainActivity extends Game {
         return false;
     }
 
+    public void getWidth(){
+
+    }
+
     public void dispose() {
     }
 }
