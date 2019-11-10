@@ -16,7 +16,6 @@ public class Food {
         imgFood = new Texture(Gdx.files.internal("food.png"));
     }
 
-
     public void render(SpriteBatch batch) {
         batch.draw(imgFood, x, y, 16, 16);
     }
