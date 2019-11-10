@@ -44,14 +44,15 @@ public class MainActivity extends Game {
         if (check()) {
             x = (int) (Math.random() * width);
             y = (int) (Math.random() * height);
+            food.dispose();
         }
     }
 
     public boolean check() {
-        if ((snake.x >= food.x) &&
-                (snake.x + 32) <= (food.x + 16)
-                && (snake.y >= food.y) &&
-                (snake.y + 32 <= food.y + 16)) {
+        if ((snake.x <= food.x) &&
+                (snake.y <= food.y &&
+                ((snake.x + 32) >= (food.x + 16))
+                && ((snake.y + 32) >= (food.y + 16)))) {
             return true;
         }
         return false;
