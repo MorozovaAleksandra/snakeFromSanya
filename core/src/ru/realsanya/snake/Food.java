@@ -25,8 +25,11 @@ public class Food {
 
     public void render(SpriteBatch batch) {
         batch.draw(imgFood, x, y, 16,16);
-//        x = 0 + (int) (Math.random() * width);
-//        y = 0 + (int) (Math.random() * height);
+    }
+
+    public void change(){
+        x = (int) (Math.random() * width);
+        y = (int) (Math.random() * height);
     }
 
     public void dispose() {

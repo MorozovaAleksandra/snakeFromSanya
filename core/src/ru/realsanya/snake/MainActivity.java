@@ -17,11 +17,6 @@ public class MainActivity extends Game {
     Stage stage;
     StretchViewport viewport;
 
-    int x;
-    int y;
-    int width = 320;
-    int height = 640;
-
     public void create() {
         viewport = new StretchViewport(640, 360);
         stage = new Stage(viewport);
@@ -29,11 +24,6 @@ public class MainActivity extends Game {
         batch = new SpriteBatch();
         snake = new Snake();
         food = new Food();
-    }
-
-    public void update() {
-        x = (int) (Math.random() * width);
-        y = (int) (Math.random() * height);
     }
 
     public void render() {
@@ -46,8 +36,7 @@ public class MainActivity extends Game {
         batch.end();
 
         if (check()) {
-            x = (int) (Math.random() * width);
-            y = (int) (Math.random() * height);
+            food.change();
         }
     }
 
