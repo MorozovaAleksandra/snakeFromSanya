@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class MainActivity extends Game {
-
     SpriteBatch batch;
 
     Snake snake;
@@ -17,6 +16,11 @@ public class MainActivity extends Game {
 
     Stage stage;
     StretchViewport viewport;
+
+    int x;
+    int y;
+    int width = 320;
+    int height = 640;
 
     public void create() {
         viewport = new StretchViewport(640, 360);
@@ -37,15 +41,13 @@ public class MainActivity extends Game {
         food.render(batch);
         snake.render(batch);
 
-        if ((snake.x >= food.x) &&
-                (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
-                && (snake.y >= food.y) &&
-                (snake.y + snake.getHeight() <= food.y + food.getHeight())) {
-            update();
+        if (check() == true) {
+            x = 0 + (int) (Math.random() * width);
+            y = 0 + (int) (Math.random() * height);
         }
     }
 
-    public static boolean check() {
+    public boolean check() {
         if ((snake.x >= food.x) &&
                 (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
                 && (snake.y >= food.y) &&

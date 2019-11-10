@@ -29,15 +29,13 @@ public class Food extends Actor {
         batch.end();
 
 
-        x = 0 + (int) (Math.random() * width);
-        y = 0 + (int) (Math.random() * height);
+//        x = 0 + (int) (Math.random() * width);
+//        y = 0 + (int) (Math.random() * height);
     }
-
 
     public void dispose() {
         imgFood.dispose();
     }
-
 
     public void delete(Sprite sprite) {
     }

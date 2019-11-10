@@ -16,13 +16,11 @@ public class Snake extends Actor {
     Texture imgSnake;
     SpriteBatch batch;
 
-
     public Snake() {
         batch = new SpriteBatch();
         imgSnake = new Texture(Gdx.files.internal("snakebody.png"));
 
     }
-
 
     public void render(SpriteBatch batch) {
         batch.begin();
@@ -42,7 +40,6 @@ public class Snake extends Actor {
         batch.end();
 
     }
-
 
     public void dispose() {
         imgSnake.dispose();
