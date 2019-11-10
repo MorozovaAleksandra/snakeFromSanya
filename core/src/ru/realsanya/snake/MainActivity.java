@@ -49,9 +49,9 @@ public class MainActivity extends Game {
 
     public boolean check() {
         if ((snake.x >= food.x) &&
-                (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
+                (snake.x + 32) <= (food.x + 16)
                 && (snake.y >= food.y) &&
-                (snake.y + snake.getHeight() <= food.y + food.getHeight())) {
+                (snake.y + 32 <= food.y + 16)) {
             return true;
         }
         return false;

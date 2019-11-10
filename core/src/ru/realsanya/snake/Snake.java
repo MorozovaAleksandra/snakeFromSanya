@@ -18,7 +18,7 @@ public class Snake {
 
     public Snake() {
         batch = new SpriteBatch();
-        imgSnake = new Texture(Gdx.files.internal("snakebody.png"));
+        imgSnake = new Texture(Gdx.files.internal("body.png"));
 
     }
 
