@@ -15,21 +15,21 @@ public class Food extends Actor {
     int height = 640;
 
     Texture imgFood;
-    Sprite foodSprite;
+    //
+    // Sprite foodSprite;
 
     Food(Texture food) {
         this.imgFood = food;
-        foodSprite = new Sprite(imgFood);
-
+        // foodSprite = new Sprite(imgFood);
     }
 
 
     public void render(SpriteBatch batch) {
         x = 0 + (int) (Math.random() * width);
-        y = 0 +  (int) (Math.random() * height);
+        y = 0 + (int) (Math.random() * height);
         batch.begin();
-        foodSprite.setBounds(x, y, 16, 16);
-        batch.draw(foodSprite, foodSprite.getX(), foodSprite.getY());
+        //foodSprite.setBounds(x, y, 16, 16);
+        batch.draw(imgFood, x, y);
         batch.end();
     }
 

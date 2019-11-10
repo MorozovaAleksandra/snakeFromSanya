@@ -13,7 +13,7 @@ public class Snake extends Actor {
     int y = 45;
     int speed = 2;
 
-    Sprite snakeSprite;
+    //    Sprite snakeSprite;
     Texture imgSnake;
 
 
@@ -30,17 +30,17 @@ public class Snake extends Actor {
 
     public Snake(Texture imgSnake) {
         this.imgSnake = imgSnake;
-        snakeSprite = new Sprite(imgSnake);
+//        snakeSprite = new Sprite(imgSnake);
     }
 
-    public Sprite getSprite() {
-        return snakeSprite;
-    }
+    // public Sprite getSprite() {
+    //      return snakeSprite;
+    //}
 
     public void render(SpriteBatch batch) {
         batch.begin();
-        snakeSprite.setBounds(x, y, 16, 16);
-        batch.draw(snakeSprite, snakeSprite.getX(), snakeSprite.getY());
+//        snakeSprite.setBounds(x, y, 16, 16);
+        batch.draw(imgSnake, x, y);
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             x += speed;
         }
