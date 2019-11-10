@@ -42,8 +42,8 @@ public class MainActivity extends Game {
         snake.render(batch);
 
         if (check()) {
-            x = 0 + (int) (Math.random() * width);
-            y = 0 + (int) (Math.random() * height);
+            x = (int) (Math.random() * width);
+            y = (int) (Math.random() * height);
         }
     }
 

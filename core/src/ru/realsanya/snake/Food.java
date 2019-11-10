@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import java.util.Random;
 
-public class Food extends Actor {
+public class Food {
     int x;
     int y;
     int width = 320;
