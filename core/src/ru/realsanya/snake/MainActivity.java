@@ -32,33 +32,36 @@ public class MainActivity extends Game {
     }
 
     public void update() {
+        x = (int) (Math.random() * width);
+        y = (int) (Math.random() * height);
     }
 
     public void render() {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        batch.begin();
         food.render(batch);
         snake.render(batch);
+        batch.end();
 
         if (check()) {
             x = (int) (Math.random() * width);
             y = (int) (Math.random() * height);
-            food.dispose();
         }
     }
 
     public boolean check() {
         if ((snake.x <= food.x) &&
                 (snake.y <= food.y &&
-                ((snake.x + 32) >= (food.x + 16))
-                && ((snake.y + 32) >= (food.y + 16)))) {
+                        ((snake.x + 32) >= (food.x + 16))
+                        && ((snake.y + 32) >= (food.y + 16)))) {
             return true;
         }
         return false;
     }
 
-    public void getWidth(){
+    public void getWidth() {
 
     }
 
