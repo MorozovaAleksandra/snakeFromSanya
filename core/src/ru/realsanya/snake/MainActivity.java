@@ -28,7 +28,6 @@ public class MainActivity extends Game {
     StretchViewport viewport;
 
 
-
     public void create() {
         viewport = new StretchViewport(640, 360);
         stage = new Stage();
@@ -47,14 +46,15 @@ public class MainActivity extends Game {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-         food.render(batch);
-            if ((snake.x >= food.x) &&
-                    (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
-                    && (snake.y >= food.y) &&
-                    (snake.y + snake.getHeight() <= food.y + food.getHeight())) {
-                update( );
-            }
+        food.render(batch);
         snake.render(batch);
+
+        if ((snake.x >= food.x) &&
+                (snake.x + snake.getWidth()) <= (food.x + food.getWidth())
+                && (snake.y >= food.y) &&
+                (snake.y + snake.getHeight() <= food.y + food.getHeight())) {
+            update();
+        }
     }
 
 
